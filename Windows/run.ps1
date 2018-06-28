@@ -10,7 +10,8 @@ if(-Not (Test-Path $file)) {
 	Write-Host "Copying profile.ps1 to $file"
 	cp profile.ps1 $file
 } else {
-	throw "$file already exists! Please delete file."
+	Write-Host "$file already exists! Updating."
+	cp -Force profile.ps1 $file
 }
 
 Write-Host "Done!"
