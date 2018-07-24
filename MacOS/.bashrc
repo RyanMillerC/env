@@ -33,6 +33,7 @@ bind '"\e[24~":"fg\n"' # Bind the fg command to F12
 
 # Aliases
 alias atom='atom --force-device-scale-factor=1.25'
+alias dir='ls -lah'  # Because I constantly type Powershell commands
 alias ll='ls -lah'
 alias lx='xterm > /dev/null 2>&1 &'
 #alias python='python3'
