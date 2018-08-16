@@ -1,0 +1,17 @@
+atom-ide-ui
+atom-keyboard-macros-vim
+autocomplete-python
+git-time-machine
+ide-python
+keystroke
+language-powershell
+lazy-motion
+MagicPython
+markdown-preview-plus
+platformio-ide-terminal
+relative-numbers
+sort-lines
+split-diff
+vim-mode-plus
+vim-mode-plus-keymaps-for-surround
+vim-mode-plus-macros

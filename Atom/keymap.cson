@@ -1,0 +1,27 @@
+'atom-text-editor.vim-mode-plus.insert-mode':
+  'ctrl-c': 'core:copy'
+
+'atom-text-editor.vim-mode-plus:not(.insert-mode)':
+  # Arrow keys times 10
+  'up': 'keystroke 1 0 g k'
+  'down': 'keystroke 1 0 g j'
+  'right': 'keystroke 1 0 g l'
+  'left': 'keystroke 1 0 g h'
+  # Macros (I'm trying something else right now)
+  #   'q': 'atom-keyboard-macros-vim:toggle_record_macro_vim'
+  #   '@': 'atom-keyboard-macros-vim:execute_macro_vim'
+  #   'Q': 'atom-keyboard-macros:call_last_kbd_macro'
+  # Attempt a thing here
+  'space d': 'keystroke " _ d'
+  'space D': 'keystroke " _ D'
+  'space c': 'keystroke " _ c'
+  'space C': 'keystroke " _ C'
+  # Search Tools
+
+'atom-text-editor.vim-mode-plus.normal-mode, atom-text-editor.vim-mode-plus.visual-mode':
+  ', f': 'lazy-motion:forward'
+  ', p': 'lazy-motion:forward-again'
+
+ 'atom-text-editor.lazy-motion':
+  ']': 'lazy-motion:forward'
+  '[': 'lazy-motion:backward'
