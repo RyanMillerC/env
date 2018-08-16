@@ -66,7 +66,7 @@ Set-Alias -Name run -Value Sign-And-Run-PowerShell-Script
 
 
 #
-# Activate a Python Virtual Environment
+# Activate a Python 2 Virtual Environment
 #
 function Activate-Virtualenv {
 	$file = '.venv\Scripts\activate.ps1'
@@ -76,7 +76,7 @@ Set-Alias -Name venv -Value Activate-Virtualenv
 
 
 #
-# Activate a Python Virtual Environment
+# Activate a Python 3 Virtual Environment
 #
 function Activate-Virtualenv3 {
 	$file = '.venv3\Scripts\activate.ps1'
