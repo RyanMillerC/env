@@ -9,7 +9,7 @@ Step 2: `cd env\Windows`
 Step 3: `.\run.ps1`
 
 
-#### *For environments that require signed PowerShell scripts:*
+#### For environments that require signed PowerShell scripts
 
 Step 1: `git clone https://github.com/RyanMillerC/env`
 
@@ -25,6 +25,13 @@ Step 6: `Set-AuthenticodeSignature ${env:USERPROFILE}\Documents\WindowsPowerShel
 
 
 ## Update
+
+Step 1: `git pull`
+
+Step 2: `.\run.ps1`
+
+
+#### For environments that require signed PowerShell scripts
 
 Step 1: `git pull`
 
