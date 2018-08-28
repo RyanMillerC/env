@@ -3,7 +3,7 @@
 ## Setup
 
 ```powershell
-git clone https://github.com/RyanMillerC/env
+git clone "https://github.com/RyanMillerC/env"
 cd env\Windows
 .\run.ps1
 ```
@@ -11,7 +11,7 @@ cd env\Windows
 #### *For environments that require signed PowerShell scripts*
 
 ```powershell
-git clone https://github.com/RyanMillerC/env
+git clone "https://github.com/RyanMillerC/env"
 cd env\Windows
 $cert = $(Get-ChildItem Cert:\CurrentUser\My\ -CodeSigningCert)
 Set-AuthenticodeSignature .\run.ps1 -Certificate ${cert}
