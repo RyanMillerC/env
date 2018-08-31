@@ -16,7 +16,7 @@ set -o vi
 # Environment Variables
 export EDITOR='vim'
 export GPG_TTY=$(tty)
-export LS_COLORS=${LS_COLORS}:'di=0;34:ex=0;32:fi=0;37:'
+export LS_COLORS=${LS_COLORS}:'di=0;34:ex=0;32:fi=0;37:ow=0;34:'
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:/usr/local/git/share/man/git-manpages:${PATH}"  # Add coreutils and git to MANPATH
 export PATH="${PATH}:${HOME}/bin"  # Add ~/bin/ to PATH
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:${PATH}"  # Add coretils to PATH
