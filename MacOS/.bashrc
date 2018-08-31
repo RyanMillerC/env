@@ -5,11 +5,11 @@ if [[ -z $TERM ]] ; then
 fi
 
 # Source extra junk
-# for file in /etc/bashrc ${HOME}/.bashrc_secret ; do
-#     if [[ -f ${file} ]] ; then
-#         source "${file}"
-#     fi
-# done
+for file in /etc/bashrc ${HOME}/.bashrc_secret ; do
+    if [[ -f ${file} ]] ; then
+        source "${file}"
+    fi
+done
 
 set -o vi 
 
