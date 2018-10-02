@@ -47,8 +47,8 @@ bind '"\e[24~":"fg\n"' # Bind the fg command to F12
 #alias atom='atom --force-device-scale-factor=1.25'
 alias ll='ls -lah --color --group-directories-first'
 alias lx='xterm > /dev/null 2>&1 &'
-#alias python='python3'
-#alias pip='pip3'
+alias python2='/usr/bin/python'  # Gross
+alias python='/usr/local/bin/python3'  # Yes
 alias root='sudo su -'
 alias scratch="vim ${HOME}/Documents/scratch"
 alias todo="vim ${HOME}/Documents/todo.txt"
@@ -75,6 +75,9 @@ spoof_traffic() {
     printf "\e[0;31mGo forth and do good things...\e[0m\n"
 }
 # trash() { mv $@ ${HOME}/.trash ; }
+
+# added by travis gem - ?? idk
+[ -f /Users/ryanmiller/.travis/travis.sh ] && source /Users/ryanmiller/.travis/travis.sh
 
 get_git() {
     local branch=$(git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1/")
