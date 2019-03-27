@@ -19,7 +19,7 @@ export GPG_TTY=$(tty)
 export LS_COLORS=${LS_COLORS}:'di=0;34:ex=0;32:fi=0;37:ow=0;34:'
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:/usr/local/git/share/man/git-manpages:${PATH}"  # Add coreutils and git to MANPATH
 export PATH="${PATH}:${HOME}/bin"  # Add ~/bin/ to PATH
-export PATH="/usr/local/opt/coreutils/libexec/gnubin:${PATH}"  # Add coretils to PATH
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:${HOME}/Developer/bin:${PATH}"
 export VISUAL='vim'
 
 # COLORS
@@ -44,14 +44,17 @@ NO_WRAP_COLOROFF="\e[0;m"
 bind '"\e[24~":"fg\n"' # Bind the fg command to F12
 
 # Aliases
-#alias atom='atom --force-device-scale-factor=1.25'
+alias create-virtualenv='python3 -m virtualenv .venv'
+alias ct="date '+%Y%m%d%H%M%S'"
 alias ll='ls -lah --color --group-directories-first'
 alias lx='xterm > /dev/null 2>&1 &'
-alias python2='/usr/bin/python'  # Gross
-alias python='/usr/local/bin/python3'  # Yes
 alias root='sudo su -'
 alias scratch="vim ${HOME}/Documents/scratch"
 alias todo="vim ${HOME}/Documents/todo.txt"
+alias venv='source ./.venv/bin/activate'
+alias vim='nvim'
+alias vim-install='vim +PluginInstall +qall'
+alias workspace='tmux new -s workspace'
 
 # Functions
 u2f_aws() {
@@ -69,12 +72,11 @@ cleanhouse() {
     docker kill $(docker ps -q) 2> /dev/null
     docker rm $(docker ps -a -q) 2> /dev/null
 }
-ct() { date '+%Y%m%d%H%M%S' ; }
 spoof_traffic() {
     sudo sysctl -w net.inet.ip.ttl=65
     printf "\e[0;31mGo forth and do good things...\e[0m\n"
 }
-# trash() { mv $@ ${HOME}/.trash ; }
+trash() { mv $@ ${HOME}/.trash ; }
 
 # added by travis gem - ?? idk
 [ -f /Users/ryanmiller/.travis/travis.sh ] && source /Users/ryanmiller/.travis/travis.sh
@@ -114,3 +116,10 @@ if [[ $(cat ~/Documents/todo.txt | wc -l | tr -d ' ') -gt 0 ]] ; then
         printf "${NO_WRAP_RED} + ${NO_WRAP_COLOROFF}${line}\n"
     done < "${HOME}/Documents/todo.txt"
 fi
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.bash ] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.bash
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.bash ] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.bash
