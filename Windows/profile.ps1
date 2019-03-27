@@ -41,12 +41,13 @@ Set-Alias -Name edit -Value Open-Notepad-Plus-Plus
 # Sign a PowerShell script with signing certificate
 #
 function Sign-PowerShell-Script {
-	$file = ${args}[0]
-	if($file -eq $null) {
+	if(${args}[0] -eq $null) {
 		Throw "No script file provided as argument"
 	}
 	$cert = $(Get-ChildItem Cert:\CurrentUser\My\ -CodeSigningCert)
-	Set-AuthenticodeSignature ${file} -Certificate ${cert} > $null
+	Foreach (${file} in ${args}) {
+		Set-AuthenticodeSignature ${file} -Certificate ${cert} > $null
+	}
 }
 Set-Alias -Name sign -Value Sign-PowerShell-Script
 
@@ -85,25 +86,14 @@ function Activate-Virtualenv3 {
 Set-Alias -Name venv3 -Value Activate-Virtualenv3
 
 
-#
-# Customize command prompt to be on two lines
-#
-function prompt {
-	If (([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole(`
-    [Security.Principal.WindowsBuiltInRole] "Administrator")) {
-		# If logged in as an Administrator
-		$u = "ADMIN "
-	}
-	$p = $pwd."Path"
-
-	Write-Host ""
-	Write-Host "PS " -nonewline
-	Write-Host "${u}" -nonewline -ForegroundColor Red
-	Write-Host "${p}`n>" -nonewline
-
-	return " "
-}
+# Git Prompt - Assuming it is installed in C:/Users/{USER}/Applications/
+Import-Module "${env:USERPROFILE}\Applications\posh-git\src\posh-git.psd1"
+$GitPromptSettings.BeforeStatus.ForegroundColor = 'White'
+$GitPromptSettings.AfterStatus.ForegroundColor = 'White'
+$GitPromptSettings.DelimStatus.ForegroundColor = 'White'
+$GitPromptSettings.DefaultPromptPath.ForegroundColor = 'Gray'
+$GitPromptSettings.DefaultPromptBeforeSuffix.Text = '`n'
 
 
-# Make things neat
-Clear-Host
+# Super useful - Sign all PowerShell scripts recursively in current directory
+# Get-ChildItem . -Recurse | where {$_.extension -eq ".ps1"} | % { sign $_.FullName }
