@@ -1,0 +1,19 @@
+[credential]
+  helper = osxkeychain
+[user]
+  name = Ryan Miller
+  email = ryan@devopsmachine.com
+[grep]
+  lineNumber = true
+[alias]
+  aa = add --all
+  amend = commit --amend
+  br = branch
+  cam = commit -a -m
+  ci = commit
+  co = checkout
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+  pr = remote prune origin
+  st = status
+  unstage = reset --soft HEAD^
+
