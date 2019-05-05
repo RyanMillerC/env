@@ -1,21 +1,31 @@
 #!/bin/bash
 #
-# Copy files into home directory
+# Set up MacOS environment
 #
 
-echo "diff ./.bashrc ~/.bashrc"
-sdiff -s ./.bashrc ~/.bashrc
-echo "This will replace ~/.bashrc and ~/.bash_profile. Are you sure you want to do this?"
+echo "This will replace your settings. Are you sure you want to do this? (n/Y)"
 
-# Wait for input
-read dummy  
+read confirm
+[[ ${confirm} = y || ${confirm} = Y ]] || exit 1
 
-# Backup just in case
-cp ${HOME}/.bashrc{,_old}
-cp ${HOME}/.bash_profile{,_old}
+dotfiles='
+.bash_profile
+.bashrc
+.gitconfig
+.inputrc
+'
+for file in ${dotfiles} ; do
+    [[ -f ${HOME}/${file} ]] && mv ${HOME}/${file}{,.bak} # Backup just in case
+    cp ${file} ${HOME}
+done
 
-# Replace files
-cp .bash_profile .bashrc ${HOME}
+[[ ! -d ${HOME}/.config ]] && mkdir ${HOME}/.config
+[[ -d ${HOME}/.config/karabiner ]] && mv ${HOME}/.config/karabiner{,.bak}
+cp -r .config/karabiner ${HOME}/.config
+
+iterm_profile="${HOME}/Library/Application Support/iTerm2/DynamicProfiles/iterm_profiles.json"
+[[ -f "${iterm_profile}" ]] && mv "${iterm_profile}"{,.bak}
+cp iterm_profiles.json "${iterm_profile}"
 
 echo "Completed!"
 
