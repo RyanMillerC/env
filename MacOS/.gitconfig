@@ -9,13 +9,16 @@
   aa = add --all
   amend = commit --amend
   br = branch
-  cam = commit -a -m
   co = commit
+  com = commit -m
   ch = checkout
   cl = clean -df
   di = diff
+  dic = diff --cached
+  diffc = diff --cached
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
   pr = remote prune origin
+  ps = push
+  psuo = push -u origin
   rh = reset --hard
   st = status
-  unstage = reset --soft
