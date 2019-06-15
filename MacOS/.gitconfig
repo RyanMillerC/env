@@ -2,18 +2,26 @@
   helper = osxkeychain
 [user]
   name = Ryan Miller
-  email = ryan@devopsmachine.com
+  email = rmiller@synergybis.com
 [grep]
   lineNumber = true
 [alias]
   aa = add --all
   amend = commit --amend
   br = branch
-  cam = commit -a -m
-  ci = commit
-  co = checkout
+  co = commit
+  com = commit -m
+  ch = checkout
+  cl = clean -df
+  di = diff
+  dif = diff
+  dic = diff --cached
+  diffc = diff --cached
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-  pr = remote prune origin
+  rp = remote prune origin
+  pl = pull
+  ps = push
+  psr = push -u origin
+  rh = reset --hard
+  ss = status
   st = status
-  unstage = reset --soft HEAD^
-

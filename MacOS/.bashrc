@@ -26,7 +26,7 @@ done
 # uninstall by removing these lines or running `tabtab uninstall sls`
 [ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.bash ] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.bash
 
-set -o vi 
+set -o vi
 
 # Environment Variables
 export CD_TRACKING=true # If true, will track last directory cd'ed
@@ -62,7 +62,8 @@ bind '"\e[24~":"fg\n"' # Bind the fg command to F12
 # Aliases
 alias create-virtualenv='python3 -m virtualenv .venv'
 alias ct="date '+%Y%m%d%H%M%S'"
-alias dir='ls -lah --color --group-directories-first'
+alias cls='cs'
+alias dir='ll'
 alias disable-cd-tracking='export CD_TRACKING=false'
 alias enable-cd-tracking='export CD_TRACKING=true'
 alias ll='ls -lah --color --group-directories-first'
@@ -145,4 +146,3 @@ cd $(cat ~/.lastdir) # Redirect to the last directory before logout
 
 # Print TODO list
 print-todo
-
