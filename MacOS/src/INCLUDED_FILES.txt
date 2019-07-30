@@ -1,0 +1,9 @@
+.bash_profile
+.bashrc
+.config
+.git-completion.sh
+.gitconfig
+.inputrc
+.iterm2_shell_integration.bash
+.vim
+.vimrc
