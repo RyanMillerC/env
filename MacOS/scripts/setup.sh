@@ -8,7 +8,7 @@ ENV_SOURCE="${HOME}/Dropbox/env/MacOS"
 # Pre-flight checks
 [[ ! -d ${ENV_SOURCE} ]] && echo "Sign in and sync Dropbox before using this tool" && exit 1
 [[ ! -f ${ENV_SOURCE}/INCLUDED_FILES.txt ]] && echo "${ENV_SOURCE}/INCLUDED_FILES.txt does not exist" && exit 1
-for file in $(${ENV_SOURCE}/INCLUDED_FILES.txt) ; do
+for file in $(cat ${ENV_SOURCE}/INCLUDED_FILES.txt) ; do
   full_path=${ENV_SOURCE}/${file}
   [[ ! -e $full_path ]] && echo "${full_path} does not exist" && exit 1
 done
