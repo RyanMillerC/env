@@ -19,6 +19,7 @@ set nocompatible
 set number
 set smartcase "Search is case-insensitive when all is lowercase
 set incsearch
+set backspace=indent,eol,start
 
 "Set indenting
 filetype plugin indent on

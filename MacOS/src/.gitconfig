@@ -1,28 +1,42 @@
-[credential]
-  helper = osxkeychain
-[user]
-  name = Ryan Miller
-  email = rmiller@synergybis.com
-[grep]
-  lineNumber = true
 [alias]
-  aa = add --all
-  amend = commit --amend
-  br = branch
-  co = commit
-  com = commit -m
-  ch = checkout
-  cl = clean -df
-  di = diff
-  dif = diff
-  dic = diff --cached
-  diffc = diff --cached
-  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-  rp = remote prune origin
-  pl = pull
-  ps = push
-  psr = push -u origin
-  rh = reset --hard
-  ss = status
-  st = status
+    aa = add --all
+    amend = commit --amend
+    br = branch
+    br-clean = "!git branch | grep -v 'master' | xargs git branch -D"
+    co = commit
+    com = commit -m
+    ch = checkout
+    cl = clean -df
+    di = diff
+    dif = diff
+    dic = diff --cached
+    diffc = diff --cached
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    rpo = remote prune origin
+    pl = pull
+    ps = push
+    psr = push -u origin
+    rh = reset --hard
+    sh = stash
+    sh-untracked = stash --include-untracked
+    ss = status
+    st = stash
+    st-untracked = stash --include-untracked
+
+[core]
+	eol = lf
+	autocrlf = false
+
+[credential]
+    helper = osxkeychain
+
+[grep]
+    lineNumber = true
+
+[http]
+    sslVerify = false
+
+[user]
+    name = Ryan Miller
+    email = rmiller@aceinfosolutions.com
 

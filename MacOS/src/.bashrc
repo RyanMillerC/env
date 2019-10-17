@@ -45,12 +45,14 @@ export GPG_TTY=$(tty)
 export HISTIGNORE='*clear-line'
 export LS_COLORS=${LS_COLORS}:'di=0;34:ex=0;32:fi=0;37:ow=0;34:'
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:/usr/local/git/share/man/git-manpages:${PATH}"  # Add coreutils and git to MANPATH
-export PATH="${PATH}:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:${HOME}/bin"  # Add ~/bin/ to PATH
+export PATH="${PATH}:/usr/local/share/dotnet/:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:${HOME}/bin"  # Add ~/bin/ to PATH
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:${HOME}/Developer/bin:${PATH}"
+export VIRTUAL_ENV=''  # VS Code is setting this for some reason; It will get overwritten when sourcing an actual venv
 export VISUAL='vim'
 
 # Custom Environment Variables
 export CD_TRACKING=true # If true, will track last directory cd'ed
+export DEV="${HOME}/Developer"
 export LONG_PWD=false # If true, show long pwd
 
 # Colors (W/ escapes for PS1)
@@ -84,9 +86,11 @@ alias cls='cs'
 alias create-virtualenv='python3 -m virtualenv .venv'
 alias ct="date '+%Y%m%d%H%M%S'"
 alias dir='ll'
+alias g='git'
 alias generate-password='diceware -d " " -c -n 4'
 alias ll='ls -lah --color --group-directories-first'
 alias lx='xterm > /dev/null 2>&1 &'
+alias remove-exec='find . -type f -exec chmod -x {} \;'
 alias root='sudo su -'
 alias scratch="vim ${HOME}/Documents/scratch"
 alias todo="vim ${HOME}/Documents/todo.txt"
@@ -127,9 +131,6 @@ get_git() {
     fi
     printf "${gitstat}"
 }
-
-# Remove all local git branches
-git-cleanup-branches() { git branch | grep -v "master" | xargs git branch -D ; }
 
 # Print todo list from ~/Docuemnets/todo.txt
 print-todo() {
